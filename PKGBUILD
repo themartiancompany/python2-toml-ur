@@ -1,6 +1,10 @@
-# Maintainer: Danilo J. S. Bellini <danilo dot bellini at gmail dot com>
+# SPDX-License-Identifier: AGPL-3.0
+#
+# Maintainer:  Danilo J. S. Bellini <danilo dot bellini at gmail dot com>
+# Contributor: Pellegrino Prevete <cGVsbGVncmlub3ByZXZldGVAZ21haWwuY29tCg== | base -d>
 # Contributor: David Runge <dvzrv@archlinux.org>
 # Contributor: Daniel M. Capella <polyzen@archlinux.org>
+
 pkgname=python2-toml
 _name=${pkgname#python2-}
 pkgver=0.10.2
@@ -34,7 +38,9 @@ check() {
 
 package() {
   cd "$srcdir/$_name-$pkgver"
-  python2 setup.py install --root="$pkgdir/" --optimize=1 --skip-build
+  python2 setup.py install --root="${pkgdir}" --optimize=1 --skip-build
   install -Dm644 LICENSE "$pkgdir/usr/share/licenses/$pkgname/LICENSE.txt"
   install -Dm644 README.rst "$pkgdir/usr/share/doc/$pkgname/README.rst"
 }
+
+# vim:set sw=2 sts=-1 et:
